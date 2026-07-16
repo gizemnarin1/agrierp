@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sproutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#84cc16" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#062013" />
+      <stop offset="100%" stop-color="#020f08" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGrad)" stroke="#10b981" stroke-width="8" />
+  
+  <!-- Sprout Path -->
+  <g transform="translate(136, 120)">
+    <!-- Right Leaf -->
+    <path d="M120,200 C150,140 220,100 240,110 C245,130 230,210 160,230 C130,238 120,200 120,200 Z" fill="url(#sproutGrad)" />
+    <!-- Left Leaf -->
+    <path d="M120,200 C90,140 20,100 0,110 C-5,130 10,210 80,230 C110,238 120,200 120,200 Z" fill="url(#sproutGrad)" opacity="0.85" />
+    <!-- Stem -->
+    <path d="M120,160 L120,260 C120,270 115,280 110,280 C105,280 100,270 100,260 L100,160 Z" fill="url(#sproutGrad)" />
+    <!-- Sprout small bud at center -->
+    <path d="M120,160 C128,150 128,130 120,120 C112,130 112,150 120,160 Z" fill="#a3e635" />
+  </g>
+</svg>
