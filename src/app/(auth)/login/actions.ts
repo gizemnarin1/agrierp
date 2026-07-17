@@ -15,7 +15,7 @@ export async function login(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data)
 
   if (error) {
-    return { error: 'Geçersiz e-posta veya şifre.' }
+    return { error: error.message }
   }
 
   revalidatePath('/', 'layout')
