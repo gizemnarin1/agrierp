@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import BottomNav from "@/components/BottomNav";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#03140b",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -38,11 +37,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={`${jakarta.variable} h-full antialiased`}>
-      <body className="min-h-full bg-background text-foreground flex flex-col pb-24 font-sans selection:bg-emerald-500/30 selection:text-emerald-300">
-        <main className="flex-1 max-w-md mx-auto w-full px-4 pt-4 pb-2 animate-slide-in">
-          {children}
-        </main>
-        <BottomNav />
+      <body className="min-h-full font-sans selection:bg-emerald-500/30 selection:text-emerald-800">
+        {children}
       </body>
     </html>
   );

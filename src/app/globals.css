@@ -1,42 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #03140b;
-  --foreground: #f0f7f3;
-  --card-bg: rgba(6, 32, 19, 0.6);
-  --border-color: rgba(16, 185, 129, 0.15);
+  /* App (Dashboard) Theme - Professional Light Mode */
+  --app-background: #f8fafc; /* slate-50 */
+  --app-foreground: #0f172a; /* slate-900 */
+  --app-card-bg: #ffffff;
+  --app-border-color: #e2e8f0; /* slate-200 */
+
+  /* Marketing (Landing Page) Theme */
+  --primary-green: #3c6e47;
+  --primary-green-hover: #2f5638;
+  --primary-green-light: #e8f0eb;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card-bg: var(--card-bg);
-  --color-border-color: var(--border-color);
+  --color-app-background: var(--app-background);
+  --color-app-foreground: var(--app-foreground);
+  --color-app-card-bg: var(--app-card-bg);
+  --color-app-border: var(--app-border-color);
+  
+  --color-primary-green: var(--primary-green);
+  --color-primary-green-hover: var(--primary-green-hover);
+  --color-primary-green-light: var(--primary-green-light);
+  
   --font-sans: 'Plus Jakarta Sans', 'Inter', sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Glassmorphism utility */
+/* Glassmorphism utility for App */
 .glass-panel {
-  background: rgba(6, 32, 19, 0.45);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--app-border-color);
 }
 
 .glass-card {
-  background: rgba(8, 41, 24, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(16, 185, 129, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  background: #ffffff;
+  border: 1px solid var(--app-border-color);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* Custom Scrollbar */
@@ -46,7 +53,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #03140b;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -58,7 +65,7 @@ body {
   background: #10b98166;
 }
 
-/* Custom animations for premium feel */
+/* Custom animations */
 @keyframes pulse-soft {
   0%, 100% {
     opacity: 0.9;
