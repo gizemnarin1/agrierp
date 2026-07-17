@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/client';
 import { PlusCircle, Sprout, Wallet, Globe, CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
 
 type FormTab = 'gider' | 'uretim_satis' | 'dis_ticaret';
 
 export default function ManualEntry() {
+  const supabase = createClient();
   const [activeTab, setActiveTab] = useState<FormTab>('gider');
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);

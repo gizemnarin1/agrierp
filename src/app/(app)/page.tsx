@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/client';
 import { 
   TrendingUp, 
   TrendingDown, 
@@ -24,6 +24,7 @@ export default function Dashboard() {
   const [disTicaret, setDisTicaret] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const supabase = createClient();
 
   async function fetchData() {
     try {

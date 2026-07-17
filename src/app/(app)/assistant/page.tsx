@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { createClient } from '@/utils/supabase/client';
 import { Send, Bot, User, Sparkles, ArrowRight, CornerDownLeft } from 'lucide-react';
 
 interface Message {
@@ -14,6 +15,7 @@ interface Message {
 
 
 export default function Assistant() {
+  const supabase = createClient();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 'welcome',

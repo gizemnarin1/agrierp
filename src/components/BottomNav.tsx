@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Sparkles, PlusCircle } from 'lucide-react';
+import { LayoutDashboard, Sparkles, PlusCircle, User } from 'lucide-react';
 
 export default function BottomNav() {
   const pathname = usePathname();
@@ -22,6 +22,11 @@ export default function BottomNav() {
       name: 'Manuel Giriş',
       href: '/manual',
       icon: PlusCircle,
+    },
+    {
+      name: 'Profil',
+      href: '/profile',
+      icon: User,
     },
   ];
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/utils/supabase/server';
 
 // OpenAI istemcisi
 const apiKey = process.env.OPENAI_API_KEY || '';
@@ -13,6 +13,7 @@ const openai = new OpenAI({
 
 export async function POST(req: NextRequest) {
   try {
+    const supabase = await createClient();
     const { text } = await req.json();
 
     if (!text || typeof text !== 'string') {
