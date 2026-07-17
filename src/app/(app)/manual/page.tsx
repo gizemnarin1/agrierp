@@ -129,32 +129,32 @@ export default function ManualEntry() {
     <div className="space-y-6">
       {/* Üst Başlık */}
       <div>
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-lime-400 bg-clip-text text-transparent">Manuel Kayıt</h1>
-        <p className="text-xs text-emerald-100/50">Formları kullanarak el ile veri girişi yapın</p>
+        <h1 className="text-2xl font-bold text-zinc-900">Manuel Kayıt</h1>
+        <p className="text-xs text-zinc-500">Formları kullanarak el ile veri girişi yapın</p>
       </div>
 
       {/* Durum Bildirim Alanı (Toast) */}
       {status && (
-        <div className={`p-4 rounded-2xl flex items-start gap-3 border animate-slide-in ${
+        <div className={`p-4 rounded-2xl flex items-start gap-3 border animate-slide-in shadow-sm ${
           status.type === 'success' 
-            ? 'bg-emerald-950/80 border-emerald-500/30 text-emerald-200' 
-            : 'bg-rose-950/80 border-rose-500/30 text-rose-200'
+            ? 'bg-primary-green-light border-primary-green/20 text-primary-green' 
+            : 'bg-rose-50 border-rose-200 text-rose-700'
         }`}>
           {status.type === 'success' ? (
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-primary-green shrink-0" />
           ) : (
-            <XCircle className="w-5 h-5 text-rose-400 shrink-0" />
+            <XCircle className="w-5 h-5 text-rose-600 shrink-0" />
           )}
           <span className="text-xs leading-tight font-medium">{status.message}</span>
         </div>
       )}
 
       {/* Tabs */}
-      <div className="flex bg-emerald-950/60 border border-emerald-900/60 p-1.5 rounded-2xl gap-1">
+      <div className="flex bg-zinc-100 border border-zinc-200 p-1.5 rounded-2xl gap-1">
         <button
           onClick={() => setActiveTab('gider')}
           className={`flex-1 py-3 text-center text-xs font-semibold rounded-xl transition duration-200 flex items-center justify-center gap-1.5 ${
-            activeTab === 'gider' ? 'bg-emerald-800 text-emerald-50 shadow-md' : 'text-emerald-100/60 hover:text-emerald-100'
+            activeTab === 'gider' ? 'bg-white text-zinc-900 shadow-sm' : 'text-zinc-500 hover:text-zinc-800'
           }`}
         >
           <Wallet className="w-4 h-4" />
@@ -163,7 +163,7 @@ export default function ManualEntry() {
         <button
           onClick={() => setActiveTab('uretim_satis')}
           className={`flex-1 py-3 text-center text-xs font-semibold rounded-xl transition duration-200 flex items-center justify-center gap-1.5 ${
-            activeTab === 'uretim_satis' ? 'bg-emerald-800 text-emerald-50 shadow-md' : 'text-emerald-100/60 hover:text-emerald-100'
+            activeTab === 'uretim_satis' ? 'bg-white text-zinc-900 shadow-sm' : 'text-zinc-500 hover:text-zinc-800'
           }`}
         >
           <Sprout className="w-4 h-4" />
@@ -172,7 +172,7 @@ export default function ManualEntry() {
         <button
           onClick={() => setActiveTab('dis_ticaret')}
           className={`flex-1 py-3 text-center text-xs font-semibold rounded-xl transition duration-200 flex items-center justify-center gap-1.5 ${
-            activeTab === 'dis_ticaret' ? 'bg-emerald-800 text-emerald-50 shadow-md' : 'text-emerald-100/60 hover:text-emerald-100'
+            activeTab === 'dis_ticaret' ? 'bg-white text-zinc-900 shadow-sm' : 'text-zinc-500 hover:text-zinc-800'
           }`}
         >
           <Globe className="w-4 h-4" />
@@ -185,30 +185,30 @@ export default function ManualEntry() {
         {/* Tab 1: Giderler */}
         {activeTab === 'gider' && (
           <form onSubmit={handleGiderSubmit} className="space-y-5">
-            <h3 className="text-sm font-bold text-emerald-100 flex items-center gap-2">
-              <Wallet className="w-4 h-4 text-emerald-400" />
+            <h3 className="text-sm font-bold text-zinc-800 flex items-center gap-2">
+              <Wallet className="w-4 h-4 text-primary-green" />
               Gider Girişi
             </h3>
             
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Kategori</label>
+              <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Kategori</label>
               <select
                 value={giderKategori}
                 onChange={(e) => setGiderKategori(e.target.value)}
-                className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-3 py-3.5 text-xs text-emerald-100 focus:outline-none focus:border-emerald-500/50"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-3.5 text-xs text-zinc-900 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
               >
-                <option value="gübre" className="bg-emerald-950 text-emerald-100">Gübre</option>
-                <option value="ilaç" className="bg-emerald-950 text-emerald-100">İlaç</option>
-                <option value="işçi" className="bg-emerald-950 text-emerald-100">İşçilik</option>
-                <option value="mazot" className="bg-emerald-950 text-emerald-100">Mazot</option>
-                <option value="fide" className="bg-emerald-950 text-emerald-100">Fide</option>
-                <option value="elektrik" className="bg-emerald-950 text-emerald-100">Elektrik / Su</option>
-                <option value="diğer" className="bg-emerald-950 text-emerald-100">Diğer Harcama</option>
+                <option value="gübre">Gübre</option>
+                <option value="ilaç">İlaç</option>
+                <option value="işçi">İşçilik</option>
+                <option value="mazot">Mazot</option>
+                <option value="fide">Fide</option>
+                <option value="elektrik">Elektrik / Su</option>
+                <option value="diğer">Diğer Harcama</option>
               </select>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Tutar (TL)</label>
+              <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Tutar (TL)</label>
               <input
                 type="number"
                 step="any"
@@ -216,25 +216,25 @@ export default function ManualEntry() {
                 value={giderTutar}
                 onChange={(e) => setGiderTutar(e.target.value)}
                 placeholder="Örn: 1500"
-                className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-4 py-3.5 text-xs text-emerald-100 placeholder-emerald-100/30 focus:outline-none focus:border-emerald-500/50"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Açıklama</label>
+              <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Açıklama</label>
               <input
                 type="text"
                 value={giderAciklama}
                 onChange={(e) => setGiderAciklama(e.target.value)}
                 placeholder="Örn: Seraya gübreleme yapıldı"
-                className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-4 py-3.5 text-xs text-emerald-100 placeholder-emerald-100/30 focus:outline-none focus:border-emerald-500/50"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-2xl transition duration-200 shadow-lg active:scale-97 flex items-center justify-center gap-2"
+              className="w-full py-4 bg-primary-green hover:bg-primary-green/90 text-white text-xs font-bold rounded-2xl transition duration-200 shadow-md active:scale-97 flex items-center justify-center gap-2"
             >
               <PlusCircle className="w-4 h-4" />
               {loading ? 'Kaydediliyor...' : 'Gider Kaydını Tamamla'}
@@ -245,43 +245,43 @@ export default function ManualEntry() {
         {/* Tab 2: Üretim Satışı */}
         {activeTab === 'uretim_satis' && (
           <form onSubmit={handleUretimSubmit} className="space-y-5">
-            <h3 className="text-sm font-bold text-emerald-100 flex items-center gap-2">
-              <Sprout className="w-4 h-4 text-emerald-400" />
+            <h3 className="text-sm font-bold text-zinc-800 flex items-center gap-2">
+              <Sprout className="w-4 h-4 text-primary-green" />
               Üretim Satış Girişi
             </h3>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Sera Adı / No</label>
+              <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Sera Adı / No</label>
               <select
                 value={uretimSera}
                 onChange={(e) => setUretimSera(e.target.value)}
-                className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-3 py-3.5 text-xs text-emerald-100 focus:outline-none focus:border-emerald-500/50"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-3.5 text-xs text-zinc-900 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
               >
-                <option value="1 Nolu Sera" className="bg-emerald-950 text-emerald-100">1 Nolu Sera</option>
-                <option value="2 Nolu Sera" className="bg-emerald-950 text-emerald-100">2 Nolu Sera</option>
-                <option value="3 Nolu Sera" className="bg-emerald-950 text-emerald-100">3 Nolu Sera</option>
-                <option value="Açık Tarla" className="bg-emerald-950 text-emerald-100">Açık Tarla / Bahçe</option>
+                <option value="1 Nolu Sera">1 Nolu Sera</option>
+                <option value="2 Nolu Sera">2 Nolu Sera</option>
+                <option value="3 Nolu Sera">3 Nolu Sera</option>
+                <option value="Açık Tarla">Açık Tarla / Bahçe</option>
               </select>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Satılan Ürün</label>
+              <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Satılan Ürün</label>
               <select
                 value={uretimUrun}
                 onChange={(e) => setUretimUrun(e.target.value)}
-                className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-3 py-3.5 text-xs text-emerald-100 focus:outline-none focus:border-emerald-500/50"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-3.5 text-xs text-zinc-900 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
               >
-                <option value="Domates" className="bg-emerald-950 text-emerald-100">Domates</option>
-                <option value="Salatalık" className="bg-emerald-950 text-emerald-100">Salatalık</option>
-                <option value="Biber" className="bg-emerald-950 text-emerald-100">Biber</option>
-                <option value="Patlıcan" className="bg-emerald-950 text-emerald-100">Patlıcan</option>
-                <option value="Diğer" className="bg-emerald-950 text-emerald-100">Diğer Ürün</option>
+                <option value="Domates">Domates</option>
+                <option value="Salatalık">Salatalık</option>
+                <option value="Biber">Biber</option>
+                <option value="Patlıcan">Patlıcan</option>
+                <option value="Diğer">Diğer Ürün</option>
               </select>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Miktar (kg)</label>
+                <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Miktar (kg)</label>
                 <input
                   type="number"
                   step="any"
@@ -289,12 +289,12 @@ export default function ManualEntry() {
                   value={uretimMiktar}
                   onChange={(e) => setUretimMiktar(e.target.value)}
                   placeholder="Örn: 500"
-                  className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-4 py-3.5 text-xs text-emerald-100 placeholder-emerald-100/30 focus:outline-none focus:border-emerald-500/50"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Birim Fiyat (TL)</label>
+                <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Birim Fiyat (TL)</label>
                 <input
                   type="number"
                   step="any"
@@ -302,13 +302,13 @@ export default function ManualEntry() {
                   value={uretimFiyat}
                   onChange={(e) => setUretimFiyat(e.target.value)}
                   placeholder="Örn: 20"
-                  className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-4 py-3.5 text-xs text-emerald-100 placeholder-emerald-100/30 focus:outline-none focus:border-emerald-500/50"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
                 />
               </div>
             </div>
 
             {uretimMiktar && uretimFiyat && (
-              <div className="text-[11px] text-emerald-300 bg-emerald-950/40 p-2.5 rounded-xl border border-emerald-850 text-center">
+              <div className="text-[11px] text-primary-green bg-primary-green-light p-2.5 rounded-xl border border-primary-green/20 text-center">
                 Toplam Satış Tutarı: <span className="font-bold">{(parseFloat(uretimMiktar) * parseFloat(uretimFiyat)).toLocaleString('tr-TR')} TL</span>
               </div>
             )}
@@ -316,7 +316,7 @@ export default function ManualEntry() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-2xl transition duration-200 shadow-lg active:scale-97 flex items-center justify-center gap-2"
+              className="w-full py-4 bg-primary-green hover:bg-primary-green/90 text-white text-xs font-bold rounded-2xl transition duration-200 shadow-md active:scale-97 flex items-center justify-center gap-2"
             >
               <PlusCircle className="w-4 h-4" />
               {loading ? 'Kaydediliyor...' : 'Satış Kaydını Tamamla'}
@@ -327,30 +327,30 @@ export default function ManualEntry() {
         {/* Tab 3: Dış Ticaret (Al-Sat) */}
         {activeTab === 'dis_ticaret' && (
           <form onSubmit={handleTicaretSubmit} className="space-y-5">
-            <h3 className="text-sm font-bold text-emerald-100 flex items-center gap-2">
-              <Globe className="w-4 h-4 text-sky-400" />
+            <h3 className="text-sm font-bold text-zinc-800 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-blue-600" />
               Dış Ticaret (Al-Sat) Girişi
             </h3>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Ürün Adı</label>
+              <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Ürün Adı</label>
               <select
                 value={ticaretUrun}
                 onChange={(e) => setTicaretUrun(e.target.value)}
-                className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-3 py-3.5 text-xs text-emerald-100 focus:outline-none focus:border-emerald-500/50"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-3.5 text-xs text-zinc-900 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
               >
-                <option value="Elma" className="bg-emerald-950 text-emerald-100">Elma</option>
-                <option value="Limon" className="bg-emerald-950 text-emerald-100">Limon</option>
-                <option value="Armut" className="bg-emerald-950 text-emerald-100">Armut</option>
-                <option value="Portakal" className="bg-emerald-950 text-emerald-100">Portakal</option>
-                <option value="Mandalina" className="bg-emerald-950 text-emerald-100">Mandalina</option>
-                <option value="Patates" className="bg-emerald-950 text-emerald-100">Patates</option>
-                <option value="Soğan" className="bg-emerald-950 text-emerald-100">Soğan</option>
+                <option value="Elma">Elma</option>
+                <option value="Limon">Limon</option>
+                <option value="Armut">Armut</option>
+                <option value="Portakal">Portakal</option>
+                <option value="Mandalina">Mandalina</option>
+                <option value="Patates">Patates</option>
+                <option value="Soğan">Soğan</option>
               </select>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Miktar (kg)</label>
+              <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Miktar (kg)</label>
               <input
                 type="number"
                 step="any"
@@ -358,13 +358,13 @@ export default function ManualEntry() {
                 value={ticaretMiktar}
                 onChange={(e) => setTicaretMiktar(e.target.value)}
                 placeholder="Örn: 1000"
-                className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-4 py-3.5 text-xs text-emerald-100 placeholder-emerald-100/30 focus:outline-none focus:border-emerald-500/50"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Alış Fiyatı (TL/kg)</label>
+                <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Alış Fiyatı (TL/kg)</label>
                 <input
                   type="number"
                   step="any"
@@ -372,12 +372,12 @@ export default function ManualEntry() {
                   value={ticaretAlis}
                   onChange={(e) => setTicaretAlis(e.target.value)}
                   placeholder="Örn: 12"
-                  className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-4 py-3.5 text-xs text-emerald-100 placeholder-emerald-100/30 focus:outline-none focus:border-emerald-500/50"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-emerald-100/60 uppercase tracking-wide">Satış Fiyatı (TL/kg)</label>
+                <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wide">Satış Fiyatı (TL/kg)</label>
                 <input
                   type="number"
                   step="any"
@@ -385,25 +385,25 @@ export default function ManualEntry() {
                   value={ticaretSatis}
                   onChange={(e) => setTicaretSatis(e.target.value)}
                   placeholder="Örn: 18"
-                  className="w-full bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-4 py-3.5 text-xs text-emerald-100 placeholder-emerald-100/30 focus:outline-none focus:border-emerald-500/50"
+                  className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3.5 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/20"
                 />
               </div>
             </div>
 
             {ticaretAlis && ticaretSatis && ticaretMiktar && (
-              <div className="text-[11px] text-sky-300 bg-emerald-950/40 p-2.5 rounded-xl border border-sky-950 text-center flex items-center justify-between">
+              <div className="text-[11px] text-blue-700 bg-blue-50 p-2.5 rounded-xl border border-blue-200 text-center flex items-center justify-between">
                 <span>Alış: {parseFloat(ticaretAlis) * parseFloat(ticaretMiktar)} TL</span>
-                <ArrowRight className="w-3 h-3 text-sky-400" />
+                <ArrowRight className="w-3 h-3 text-blue-500" />
                 <span>Satış: {parseFloat(ticaretSatis) * parseFloat(ticaretMiktar)} TL</span>
-                <ArrowRight className="w-3 h-3 text-sky-400" />
-                <span className="font-bold text-emerald-400">Net Kar: {((parseFloat(ticaretSatis) - parseFloat(ticaretAlis)) * parseFloat(ticaretMiktar)).toLocaleString('tr-TR')} TL</span>
+                <ArrowRight className="w-3 h-3 text-blue-500" />
+                <span className="font-bold text-primary-green">Net Kar: {((parseFloat(ticaretSatis) - parseFloat(ticaretAlis)) * parseFloat(ticaretMiktar)).toLocaleString('tr-TR')} TL</span>
               </div>
             )}
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-2xl transition duration-200 shadow-lg active:scale-97 flex items-center justify-center gap-2"
+              className="w-full py-4 bg-primary-green hover:bg-primary-green/90 text-white text-xs font-bold rounded-2xl transition duration-200 shadow-md active:scale-97 flex items-center justify-center gap-2"
             >
               <PlusCircle className="w-4 h-4" />
               {loading ? 'Kaydediliyor...' : 'Ticari Kaydı Tamamla'}

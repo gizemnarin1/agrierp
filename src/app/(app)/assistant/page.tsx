@@ -86,18 +86,18 @@ export default function Assistant() {
   return (
     <div className="flex flex-col h-[calc(100vh-8.5rem)] relative">
       {/* Üst Asistan Başlığı */}
-      <div className="flex items-center gap-3 pb-3 border-b border-emerald-800/30">
-        <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 to-lime-400 p-[1.5px] shadow-lg animate-pulse-soft">
-          <div className="w-full h-full rounded-2xl bg-emerald-950 flex items-center justify-center text-emerald-400">
+      <div className="flex items-center gap-3 pb-3 border-b border-zinc-200">
+        <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-primary-green to-lime-500 p-[1.5px] shadow-sm animate-pulse-soft">
+          <div className="w-full h-full rounded-2xl bg-white flex items-center justify-center text-primary-green">
             <Bot className="w-5 h-5" />
           </div>
         </div>
         <div>
-          <h1 className="text-sm font-bold text-emerald-100 flex items-center gap-1.5">
+          <h1 className="text-sm font-bold text-zinc-900 flex items-center gap-1.5">
             AI Asistanı
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span className="w-2 h-2 rounded-full bg-primary-green animate-ping"></span>
           </h1>
-          <p className="text-[10px] text-emerald-100/50">Çevrimiçi | Sesli ve yazılı NLP motoru</p>
+          <p className="text-[10px] text-zinc-500">Çevrimiçi | Sesli ve yazılı NLP motoru</p>
         </div>
       </div>
 
@@ -111,16 +111,16 @@ export default function Assistant() {
               className={`flex ${isBot ? 'justify-start' : 'justify-end'} animate-slide-in`}
             >
               <div
-                className={`max-w-[85%] rounded-2xl px-4 py-3 text-xs leading-relaxed whitespace-pre-line shadow-md border ${
+                className={`max-w-[85%] rounded-2xl px-4 py-3 text-xs leading-relaxed whitespace-pre-line shadow-sm border ${
                   isBot
                     ? msg.isError
-                      ? 'bg-rose-950/40 border-rose-800/30 text-rose-200'
-                      : 'bg-emerald-900/30 border-emerald-800/30 text-emerald-100'
-                    : 'bg-emerald-600 border-emerald-500 text-white'
+                      ? 'bg-rose-50 border-rose-200 text-rose-800'
+                      : 'bg-white border-zinc-200 text-zinc-700'
+                    : 'bg-primary-green border-primary-green text-white'
                 }`}
               >
                 {msg.text}
-                <span className={`block text-[9px] text-right mt-1.5 ${isBot ? 'text-emerald-100/30' : 'text-emerald-100/70'}`}>
+                <span className={`block text-[9px] text-right mt-1.5 ${isBot ? 'text-zinc-400' : 'text-emerald-100'}`}>
                   {msg.timestamp.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
@@ -131,10 +131,10 @@ export default function Assistant() {
         {/* Yazıyor Efekti */}
         {isLoading && (
           <div className="flex justify-start">
-            <div className="bg-emerald-900/30 border border-emerald-800/30 rounded-2xl px-4 py-3 flex gap-1 items-center">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+            <div className="bg-white border border-zinc-200 rounded-2xl px-4 py-3 flex gap-1 items-center">
+              <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+              <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+              <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
             </div>
           </div>
         )}
@@ -149,20 +149,20 @@ export default function Assistant() {
           e.preventDefault();
           handleSend(input);
         }}
-        className="pt-2 border-t border-emerald-800/20 bg-background flex gap-2 items-center"
+        className="pt-2 border-t border-zinc-200 bg-background flex gap-2 items-center"
       >
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="İşleminizi buraya yazın..."
-          className="flex-1 bg-emerald-950/40 border border-emerald-800/30 rounded-xl px-4 py-3 text-xs text-emerald-100 placeholder-emerald-100/40 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/30 transition-all"
+          className="flex-1 bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green/30 transition-all"
           disabled={isLoading}
         />
         <button
           type="submit"
           disabled={!input.trim() || isLoading}
-          className="p-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl disabled:opacity-50 disabled:hover:bg-emerald-600 transition-colors shadow-lg active:scale-95 shrink-0"
+          className="p-3 bg-primary-green hover:bg-primary-green/90 text-white rounded-xl disabled:opacity-50 disabled:hover:bg-primary-green transition-colors shadow-md active:scale-95 shrink-0"
         >
           <Send className="w-4 h-4" />
         </button>
