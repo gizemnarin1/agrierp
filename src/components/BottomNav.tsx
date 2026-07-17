@@ -10,7 +10,7 @@ export default function BottomNav() {
   const navItems = [
     {
       name: 'Özet',
-      href: '/dashboard',
+      href: '/',
       icon: LayoutDashboard,
     },
     {
